@@ -1,0 +1,7 @@
+Aluno 1: Resistência, Feminino, idade 35, Iniciante, altura 165, Cirurgia do ligamento no joelho, 15%
+
+Aluno 2: Hipertrofia, masculino, idade 28, Intermediario, altura 178, sem lesao, 19%
+
+Aluno 3: Força, Feminino, idade 22, Avançado, altura 175, sem lesao, 13%
+
+Aluno 4: resitencia, feminino, idade 74, iniciante, altura 155, 22%
