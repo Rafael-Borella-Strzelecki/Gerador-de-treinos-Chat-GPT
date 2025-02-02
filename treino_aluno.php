@@ -26,6 +26,7 @@
         </div>
         <div class="text-center mt-4">
             <button class="btn btn-primary" id="btnSalvarPDF">Salvar em PDF</button>
+            <button class="btn btn-success" id="btnImprimir">Imprimir</button>
             <a href="index.php?nocache=<?php echo time(); ?>" class="btn btn-secondary">Gerar novo Treino</a>
         </div>
     </div>
@@ -91,6 +92,44 @@
             // Salva o PDF com o nome desejado
             doc.save(nomeAluno + '_T ' + temperatura + '_Prompt ' + prompt + '.pdf');
         });
+
+        document.getElementById('btnImprimir').addEventListener('click', function () {
+            const conteudo = document.getElementById('conteudo').value;
+            const nomeAluno = "<?php echo $nomeAluno; ?>";
+            
+            // Criando uma área para a impressão dentro do próprio documento
+            const iframe = document.createElement('iframe');
+            iframe.style.position = 'absolute';
+            iframe.style.width = '0px';
+            iframe.style.height = '0px';
+            iframe.style.border = 'none';
+            
+            document.body.appendChild(iframe);
+            
+            const doc = iframe.contentWindow.document;
+            doc.open();
+            doc.write('<html><head><title>Imprimir Treino</title>');
+            doc.write('<style>');
+            doc.write('body { font-family: Arial, sans-serif; margin: 0; padding: 0; }');
+            doc.write('pre { white-space: pre-wrap; word-wrap: break-word; margin: 0; padding: 0; width: 100%; }'); // Ocupa a largura total
+            doc.write('@page { size: A4; margin: 0; padding: 20; }'); // Remove as margens da página
+            doc.write('@media print {');
+            doc.write('  body { font-size: 12pt; }');
+            doc.write('  pre { page-break-inside: avoid; }'); // Evita quebra de página dentro do conteúdo
+            doc.write('  .page { page-break-before: always; }'); // Adiciona quebra de página ao final de cada seção
+            doc.write('}');
+            doc.write('</style></head><body>');
+            doc.write('<pre><h3>Aluno: '+ nomeAluno + '</h3>' + conteudo + '</pre>');
+            doc.write('</body></html>');
+            doc.close();
+            
+            // Imprimir conteúdo do iframe
+            iframe.contentWindow.print();
+            
+            // Remover o iframe após a impressão
+            iframe.remove();
+        });
+
     </script>
 
     <!-- Bootstrap -->
