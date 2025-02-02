@@ -147,7 +147,7 @@ Dia 1: Treino A, Dia 2: Repouso, Dia 3: Treino B, Dia 4: Repouso, Dia 5: Treino 
 ";
 
 // Configurações para a API da OpenAI
-$api_key = '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';
+$api_key = 'Coloque aqui a Key do chatGPT';
 $url = 'https://api.openai.com/v1/chat/completions';
 
 switch ($tipo_prompt) {
