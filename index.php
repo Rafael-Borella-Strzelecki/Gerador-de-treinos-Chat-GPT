@@ -11,7 +11,7 @@
     <body>
         <div class="container mt-5">
             
-            <h1 class="text-center mb-4">Cadastro de Aluno para geração de treino</h1>
+            <h1 class="text-center mb-4">Dados do Aluno para Geração do Treino</h1>
             <form action="ApiChatGpt.php" method="POST" class="needs-validation" novalidate>
                 <!-- Opções de prompts -->
                 <div class="row">
